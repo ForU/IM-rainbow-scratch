@@ -1,0 +1,6 @@
+#ifndef INCLUDE_GLOBAL_HPP
+#define INCLUDE_GLOBAL_HPP
+
+#define G_DEFAULT_INDEX -1
+
+#endif /* INCLUDE_GLOBAL_HPP */

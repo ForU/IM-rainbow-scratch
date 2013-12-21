@@ -1,0 +1,35 @@
+* DONE forget about message.
+* DONE write a simple login server.
+* DONE write a single chat server
+* DONE chat protocol <2013-11-20 Wed>
+* DONE re-design packet/message manager <2013-11-20 Wed>
+* DONE if already login, response already login if login again
+* TODO check chat message validation: from can only be myself, can't be others. assign a IDENTIFICATION_CODE for login user, after then, all communication is done with the IDENTIFICATION_CODE. <2013-11-21 Thu>
+* DONE off-line handle <2013-11-21 Thu>
+* DONE when login, send on-line notification <2013-11-26 Tue>
+* DONE add signal support for button clicked or window destroy event <2013-11-26 Tue>
+* TODO session id <2013-11-29 Fri>
+* TODO multiple view <2013-11-29 Fri>
+* DONE update account info
+* DONE how to handle (gui => data)
+* DONE my version singleton, mutex, <2013-12-03 Tue>
+* DONE to update chat sidebar too when login notificatin comes, use observer-pattern. <2013-12-04 Wed>
+* DONE [#A] server login out handle <2013-12-04 Wed>
+* DONE to update login notification protocol <2013-12-04 Wed>
+* TODO to support groups <2013-12-04 Wed>
+* DONE to fix chat pair showing issue on add <2013-12-04 Wed>
+* DONE [#A] convert all global to singleton with lock <2013-12-04 Wed>
+* DONE [#C] to fix log format <2013-12-04 Wed>
+* TODO may be 3 thread is OK: #one for send and receive, #two for parse message and udpate for gui, #three for user GUI interaction. current we use two threads, #1 for gui , #2 for send and receive.
+* TODO message received should be stored for update, other message may lost.
+* DONE <time> <2013-12-06 Fri>
+* TODO protocol design, add friends, join groups <2013-12-06 Fri>
+* TODO session id <2013-12-06 Fri>
+* DONE entry send length
+* DONE use g_idle_add for client 's all message type <2013-12-09 Mon>
+* DONE packetmanager.hh -> protocol.hh + packetmanager.hh
+* TODO start up chat window, entry do not work, hide chat window when window "destroy".
+* TODO app signal <2013-12-11 Wed>
+* TODO app configure
+* TODO client side connection down handle (server down)
+* TODO login failed when first time <2013-12-18 Wed>
