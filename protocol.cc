@@ -286,7 +286,7 @@ bool RegisterRequest::parse()
 bool RegisterRequest::registeNewUser()
 {
     UserId user_id;
-    bool rc = G_user_manager.newUser(user_id, m_name, m_signature, m_email);
+    bool rc = G_user_manager.newUser(user_id, m_name, m_password, m_signature, m_email);
     if ( ! rc  ) {
         LOG_ERROR << "failed to new user=" << user_id.id() << ", name=" << m_name;
         DStr extra_info;
@@ -625,7 +625,9 @@ bool LoginRequest::checkValidation()
     UserDataDetail &user_detail = user_refer.detail();
     if ( m_user_id != user_detail.userId() ||
         user_detail.password() != m_password ) {
-        LOG_WARN << "not valid login message, body=" << m_body << "m_user_id=" << m_user_id.id() << ", detail user_id=" << user_detail.userId().id();
+        LOG_WARN << "not valid login message, body=" << m_body
+                 << ", coming user_id=" << m_user_id.id() << ", detail user_id=" << user_detail.userId().id()
+                 << ", coming password=" << m_password << ", detail password=" << user_detail.password();
         error_info.Empty(); error_info.Assign("invalid login name or password");
         setError(E_ERROR_CODE_INVALID_MESSAGE, error_info.Str(), "");
         return false;

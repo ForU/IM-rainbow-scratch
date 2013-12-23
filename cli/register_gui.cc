@@ -60,7 +60,7 @@ void RegisterGui::compose()
     hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_box_pack_start(GTK_BOX(register_page), hbox, FALSE, TRUE, 0);
     label = gtk_label_new("");
-    gtk_label_set_markup(GTK_LABEL(label), "<tt>  Register Name: </tt>");
+    gtk_label_set_markup(GTK_LABEL(label), "<tt>            Name: </tt>");
     gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, TRUE, 0);
     m_reg_page_entry_registername = gtk_entry_new();
     gtk_box_pack_start(GTK_BOX(hbox), m_reg_page_entry_registername, TRUE, TRUE, 0);
@@ -69,7 +69,7 @@ void RegisterGui::compose()
     hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_box_pack_start(GTK_BOX(register_page), hbox, FALSE, TRUE, 0);
     label = gtk_label_new("");
-    gtk_label_set_markup(GTK_LABEL(label), "<tt>  Your Password: </tt>");
+    gtk_label_set_markup(GTK_LABEL(label), "<tt>        Password: </tt>");
     gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, TRUE, 0);
     m_reg_page_entry_password = gtk_entry_new();
     gtk_box_pack_start(GTK_BOX(hbox), m_reg_page_entry_password, TRUE, TRUE, 0);
@@ -89,7 +89,7 @@ void RegisterGui::compose()
     hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_box_pack_start(GTK_BOX(register_page), hbox, FALSE, TRUE, 0);
     label = gtk_label_new("");
-    gtk_label_set_markup(GTK_LABEL(label), "<tt>          Email: </tt>");
+    gtk_label_set_markup(GTK_LABEL(label), "<tt>           Email: </tt>");
     gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, TRUE, 0);
     m_reg_page_entry_email = gtk_entry_new();
     gtk_box_pack_start(GTK_BOX(hbox), m_reg_page_entry_email, TRUE, TRUE, 0);
@@ -97,7 +97,7 @@ void RegisterGui::compose()
     hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_box_pack_start(GTK_BOX(register_page), hbox, TRUE, TRUE, 0);
     label = gtk_label_new("");
-    gtk_label_set_markup(GTK_LABEL(label), "<tt>      Signature: </tt>");
+    gtk_label_set_markup(GTK_LABEL(label), "<tt>       Signature: </tt>");
     gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, TRUE, 0);
     GtkWidget *sw = NULL;
     const char* init_text ="share your motion with your friends, you can write 100 characters";

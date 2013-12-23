@@ -138,7 +138,7 @@ void onLoginGuiButtonLoginClicked(void* args)
     }
 
     // try to connected to server
-    g_rainbow_client->connect();
+    // g_rainbow_client->connect();
     int timeout = 3, step = 1;
     bool connected = false;
     while ( timeout ) {
@@ -147,6 +147,7 @@ void onLoginGuiButtonLoginClicked(void* args)
             connected = true;
             break;
         }
+        g_rainbow_client->connect();
         PR_TRACE("waiting connection for %d secs", timeout);
         sleep(step);
         timeout -= step;

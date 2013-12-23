@@ -42,7 +42,7 @@ void RainbowClient::onConnection(const TcpConnectionPtr& conn)
     if (conn->connected()) {
         m_connection = conn;
     } else {
-        // m_connection.reset();
+        m_connection.reset();
     }
 }
 

@@ -30,6 +30,9 @@ bool RainbowApp::do_start()
     muduo::net::InetAddress serverAddr(m_server_ip.c_str(), m_server_port);
 
     g_rainbow_client = new RainbowClient(loopThread.startLoop(), serverAddr);
+    // try to connected to server
+    g_rainbow_client->connect();
+
     // main thread show and run gtk
     g_login_gui.show();
     // return when gtk_main_quit() called

@@ -62,6 +62,7 @@ int getUserNameReferIndex(char c)
 
 bool UserManager::newUser(UserId& user_id,   // return user id
                           const std::string& register_name,
+                          const std::string& password,
                           const std::string& signature,
                           const std::string& email_val)
 {
@@ -73,23 +74,25 @@ bool UserManager::newUser(UserId& user_id,   // return user id
     }
     LOG_DEBUG << "successfully generate user id=" << user_id.id();
     // add User (both user refer and user name refer)
-    return addUser(user_id, register_name, signature, email_val);
+    return addUser(user_id, register_name, password, signature, email_val);
 }
 
 bool UserManager::addUser(const UserDataDetail& user_detail)
 {
     return addUser(user_detail.userId(),
                    user_detail.registerName(),
+                   user_detail.password(),
                    user_detail.signature(),
                    user_detail.email());
 }
 
 bool UserManager::addUser(const UserId& user_id,
                           const std::string& register_name,
+                          const std::string& password,
                           const std::string& signature,
                           const std::string& email_val)
 {
-    if ( ! addUserRefer(user_id, register_name, signature) ) {
+    if ( ! addUserRefer(user_id, register_name, password, signature) ) {
         LOG_ERROR << "failed to add user refer, user=" << user_id.id()
                   << ", name=" << register_name;
         return false;
@@ -110,12 +113,14 @@ bool UserManager::addUserRefer(const UserDataDetail& user_detail)
 {
     return addUserRefer(user_detail.userId(),
                         user_detail.registerName(),
+                        user_detail.password(),
                         user_detail.signature());
 }
 
 // add a pure user
 bool UserManager::addUserRefer(const UserId& user_id,
                                const std::string& register_name,
+                               const std::string& password,
                                const std::string& signature)
 {
     LOG_INFO << "creating and storing user refer information: "
@@ -124,7 +129,7 @@ bool UserManager::addUserRefer(const UserId& user_id,
              << "] signature:[" << signature <<"]";
 
     // 1. handle user refer
-    UserDataDetail user_detail(user_id, register_name, signature);
+    UserDataDetail user_detail(user_id, register_name, password, signature);
     UserRefer user_refer;
 
     user_refer.setDetail(user_detail);
@@ -138,19 +143,18 @@ bool UserManager::addUserRefer(const UserId& user_id,
 
 void UserManager::init()
 {
-    // create three user: A <=> B <=> C
-
-    addUser(UserId(1), "Jacoo Lee", "hello everyone");
-    addUser(UserId(2), "Tommy", "Sometimes you need to step outside, clear your head, and remind yourself of who you are and where you wanna be.");
-    addUser(UserId(3), "Michael", "Death comes to all, but great achievements raise a monument which shall endure until the sun grows old.");
-    addUser(UserId(4), "Lily", "I am Lily");
-    addUser(UserId(5), "Jason", "I am Jason");
-    addUser(UserId(6), "Stan", "I am stan");
-    addUser(UserId(7), "Jessica", "I am Jessica");
-    addUser(UserId(8), "Winston", "I am Winston");
-    addUser(UserId(9), "Stevenson", "I am Stevenson");
-    addUser(UserId(10), "Ten", "Ten");
-    addUser(UserId(5467899), "XX5467899", "");
+    // data emulated load from database
+    addUser(UserId(1), "Jacoo Lee", USER_DETAIL_DEFAULT_PASSWORD, "hello everyone");
+    addUser(UserId(2), "Tommy", USER_DETAIL_DEFAULT_PASSWORD, "Sometimes you need to step outside, clear your head, and remind yourself of who you are and where you wanna be.");
+    addUser(UserId(3), "Michael", USER_DETAIL_DEFAULT_PASSWORD, "Death comes to all, but great achievements raise a monument which shall endure until the sun grows old.");
+    addUser(UserId(4), "Lily", USER_DETAIL_DEFAULT_PASSWORD, "I am Lily");
+    addUser(UserId(5), "Jason", USER_DETAIL_DEFAULT_PASSWORD, "I am Jason");
+    addUser(UserId(6), "Stan", USER_DETAIL_DEFAULT_PASSWORD, "I am stan");
+    addUser(UserId(7), "Jessica", USER_DETAIL_DEFAULT_PASSWORD, "I am Jessica");
+    addUser(UserId(8), "Winston", USER_DETAIL_DEFAULT_PASSWORD, "I am Winston");
+    addUser(UserId(9), "Stevenson", USER_DETAIL_DEFAULT_PASSWORD, "I am Stevenson");
+    addUser(UserId(10), "Ten", USER_DETAIL_DEFAULT_PASSWORD, "Ten");
+    addUser(UserId(5467899), "XX5467899", USER_DETAIL_DEFAULT_PASSWORD, "");
 
 
     // make friends
@@ -158,7 +162,7 @@ void UserManager::init()
     UserId id1(1), id2(2), id3(3), id4(4), id5(5);
     UserId id6(6), id7(7), id8(8), id9(9), id5467899(5467899);
 
-    makeFriends(id1, id2, "2007-0702");
+    makeFriends(id1, id2, "basketball");
     makeFriends(id1, id3, "Family");
     makeFriends(id1, id4, "Family");
     makeFriends(id1, id5, "Buddies");

@@ -13,6 +13,7 @@ RainbowClient *g_rainbow_client = NULL;
 void onRainbowGuiWindowDestroy(void* args)
 {
     PR_TRACE("rainbow window destroy button clicked, %s terminates", g_login_gui.title().c_str());
+    g_rainbow_client->resetConnection();
     gtk_main_quit();
 }
 

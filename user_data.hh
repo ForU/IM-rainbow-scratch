@@ -223,14 +223,14 @@ public:
     }
 
     UserDataDetail(const UserId& id, const std::string& reg_name,
-                   const std::string& signature_val,
                    const std::string &password_val=USER_DETAIL_DEFAULT_PASSWORD,
+                   const std::string& signature_val="",
                    const std::string &email_val= "" ) {
         // code start here
         m_user_id = id;
         m_reg_name = reg_name;
-        m_signature = signature_val;
         m_password = password_val;
+        m_signature = signature_val;
         m_email = email_val;
         m_barebone = false;
 

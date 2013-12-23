@@ -24,6 +24,7 @@ public:
     void write(const std::string& message);
     muduo::net::TcpConnectionPtr& connection() ;
     void onRainbowResponse(const muduo::net::TcpConnectionPtr& conn, muduo::net::Buffer* buf, muduo::Timestamp receiveTime);
+    void resetConnection() { m_connection.reset(); }
 
 private:
     void onConnection(const muduo::net::TcpConnectionPtr& conn);

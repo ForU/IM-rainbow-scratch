@@ -55,6 +55,7 @@ public:
     ////////////////////////////////////////////////////////////////
     bool newUser(UserId& user_id,
                  const std::string& register_name,
+                 const std::string& password,
                  const std::string& signature="",
                  const std::string& email_val="");
 
@@ -94,10 +95,10 @@ public:
 
 private:
     bool addUser(const UserDataDetail& user_detail);
-    bool addUser(const UserId& user_id, const std::string& register_name, const std::string& signature="", const std::string& email_val="");
+    bool addUser(const UserId& user_id, const std::string& register_name, const std::string& password=USER_DETAIL_DEFAULT_PASSWORD, const std::string& signature="", const std::string& email_val="");
 
     bool addUserRefer(const UserDataDetail& user_detail);
-    bool addUserRefer(const UserId& user_id, const std::string& register_name, const std::string& signature="");
+    bool addUserRefer(const UserId& user_id, const std::string& register_name, const std::string& password=USER_DETAIL_DEFAULT_PASSWORD, const std::string& signature="");
     bool addUserNameRefer(const UserId& user_id, const std::string& name);
 
 private:

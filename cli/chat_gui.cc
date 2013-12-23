@@ -178,23 +178,23 @@ void ChatInputEntry::compose()
 
     // entry icon
 
-    const std::string& self_name = g_gui_data_manager.getSelfName();
-    std::string entry_icon_tooltip = "<i>I am "+ self_name
-        +", write message here and press \"Enter\" to send the message</i>";
-    GtkEntryIconPosition icon_pos = GTK_ENTRY_ICON_PRIMARY;
-    gtk_entry_set_icon_tooltip_markup(GTK_ENTRY(m_entry_send),
-                                      icon_pos,
-                                      entry_icon_tooltip.c_str());
-    GdkPixbuf* send_pixbuf = newIconFromPath(getIconDefaultPath());
-    gtk_entry_set_icon_from_pixbuf(GTK_ENTRY(m_entry_send),
-                                   icon_pos,
-                                   send_pixbuf);
+    // const std::string& self_name = g_gui_data_manager.getSelfName();
+    // std::string entry_icon_tooltip = "<i>I am "+ self_name
+    //     +", write message here and press \"Enter\" to send the message</i>";
+    // GtkEntryIconPosition icon_pos = GTK_ENTRY_ICON_PRIMARY;
+    // gtk_entry_set_icon_tooltip_markup(GTK_ENTRY(m_entry_send),
+    //                                   icon_pos,
+    //                                   entry_icon_tooltip.c_str());
+    // GdkPixbuf* send_pixbuf = newIconFromPath(getIconDefaultPath());
+    // gtk_entry_set_icon_from_pixbuf(GTK_ENTRY(m_entry_send),
+    //                                icon_pos,
+    //                                send_pixbuf);
 
     // button send
-    // m_button_send = gtk_button_new_with_mnemonic("    _Send    ");
-    // gtk_box_pack_end(GTK_BOX(m_container), m_button_send,
-    //                  false, true, 0);
-
+    m_button_send = gtk_button_new_with_mnemonic(" _Send ");
+    gtk_box_pack_end(GTK_BOX(m_container), m_button_send,
+                     false, true, 0);
+    gtk_button_set_relief(GTK_BUTTON(m_button_send), GTK_RELIEF_NONE);
 }
 
 bool ChatInputEntry::update(chat_type type, void* data)
@@ -293,7 +293,7 @@ void ChatPair::append(const char* content, msg_showing_type type)
 RainbowChatGui::RainbowChatGui()
 {
     PR_TRACE("constructing rainbow chat gui...");
-    m_window_width = 750;
+    m_window_width = 700;
     m_window_height = 500;
     m_window_show_titlebar = true;
     m_window_title = global_app_name " chat window";
