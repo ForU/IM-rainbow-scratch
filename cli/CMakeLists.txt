@@ -13,8 +13,8 @@ add_definitions(${GTK3_CFLAGS_OTHER})
 ################################################################
 # compile register app
 # include_directories(..)
-add_executable(test_register_application
-  test_register_application.cc
+add_executable(register_application
+  register_application.cc
   global.cc
   gui.cc
   log.cc
@@ -25,13 +25,12 @@ add_executable(test_register_application
   register_client.cc
   register_global.cc
 
-  # gui.cc ->
-  chat_gui.cc # chat_gui.cc -> rainbow_client.cc
-  rainbow_client.cc
-  rainbow_data.cc # chat_gui.cc -> rainbow_data.cc
-
-  rainbow_global.cc # -> rainbow_gui.cc
-  rainbow_gui.cc
+  # # gui.cc ->
+  # chat_gui.cc # chat_gui.cc -> rainbow_client.cc
+  # rainbow_client.cc
+  # rainbow_data.cc # chat_gui.cc -> rainbow_data.cc
+  # rainbow_global.cc # -> rainbow_gui.cc
+  # rainbow_gui.cc
 
   # ..
   ../app.cc
@@ -41,15 +40,15 @@ add_executable(test_register_application
   ../user_manager.cc
   ../session_manager.cc
   )
-target_link_libraries(test_register_application muduo_net)
-target_link_libraries(test_register_application muduo_extra)
-target_link_libraries(test_register_application ${GTK3_LIBRARIES})
+target_link_libraries(register_application muduo_net)
+target_link_libraries(register_application muduo_extra)
+target_link_libraries(register_application ${GTK3_LIBRARIES})
 
 
 ################################################################
 # compile register app
 # include_directories(..)
-add_executable(test_rainbow
+add_executable(rainbow
   rainbow.cc
   global.cc
   gui.cc
@@ -71,6 +70,6 @@ add_executable(test_rainbow
   ../session_manager.cc
   )
 
-target_link_libraries(test_rainbow muduo_net)
-target_link_libraries(test_rainbow muduo_extra)
-target_link_libraries(test_rainbow ${GTK3_LIBRARIES})
+target_link_libraries(rainbow muduo_net)
+target_link_libraries(rainbow muduo_extra)
+target_link_libraries(rainbow ${GTK3_LIBRARIES})

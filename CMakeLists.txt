@@ -23,4 +23,4 @@ target_link_libraries(rainbowserver muduo_extra)
 
 # client
 add_subdirectory(cli)
-add_subdirectory(test)
+# add_subdirectory(test)
